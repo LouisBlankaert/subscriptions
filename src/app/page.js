@@ -13,12 +13,13 @@ export default function Home() {
       try {
         const response = await fetch("https://subscriptions-backend.onrender.com/subscriptions");
         const data = await response.json();
-        setSubscriptions(data.subscriptions);
+        console.log("API Response:", data); // Vérifie ici ce que retourne l'API
+        setSubscriptions(data.subscriptions || []); // Utilise une valeur par défaut si la clé n'existe pas
       } catch (error) {
         console.error("Error fetching subscriptions:", error);
       }
     };
-
+  
     fetchSubscriptions();
   }, []);
 
