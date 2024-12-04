@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchSubscriptions = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/subscriptions");
+        const response = await fetch("https://subscriptions-backend.onrender.com/subscriptions");
         const data = await response.json();
         setSubscriptions(data.subscriptions);
       } catch (error) {
@@ -25,7 +25,7 @@ export default function Home() {
   // Ajoute un nouvel abonnement
   const handleAddSubscription = async (newSubscription) => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/subscriptions", {
+      const response = await fetch("https://subscriptions-backend.onrender.com/subscriptions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newSubscription),
@@ -48,7 +48,7 @@ export default function Home() {
   // Supprime un abonnement
   const handleDeleteSubscription = async (id) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/subscriptions/${id}`, {
+      const response = await fetch(`https://subscriptions-backend.onrender.com/subscriptions/${id}`, {
         method: "DELETE",
       });
 
